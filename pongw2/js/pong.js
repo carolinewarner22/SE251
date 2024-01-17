@@ -44,6 +44,10 @@ ball.vx = -2
 ball.vy = -2
 ball.color = `white`
 
+var scores = document.querySelectorAll(`#score div`)
+console.log(scores)
+
+
 function main()
 {
     //erases the canvas
@@ -145,7 +149,12 @@ function main()
         ball.x = pad[1].x - pad[1].w/2 - ball.w/2
         ball.vx = -ball.vx;
     }
-    
+
+    for (let i=0; i < scores.length; i++)
+    {
+        scores[i].innerHTML = `<p>Player ${i + 1}: ${player[i].score}</p>`
+
+    }
 
     //draw the objects
     pad[0].draw()
