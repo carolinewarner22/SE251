@@ -4,6 +4,6 @@ class Player {
         this.name = ''
         this.score = 0
         this.highScore = 0
-        this.pad = ''
+        this.pad = new Box()
     }
 }

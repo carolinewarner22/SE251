@@ -27,6 +27,10 @@ ball.vx = -2
 ball.vy = -2
 ball.color = `white`
 
+var player = []
+player[0] = new Player()
+player[1] = new Player()
+
 function main()
 {
     //erases the canvas
