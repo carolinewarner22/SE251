@@ -102,11 +102,20 @@ function main()
     
 
     //ball collision 
-    if(ball.x < 0 + ball.w/2 || ball.x > c.width - ball.w/2)
+    if(ball.x < 0 + ball.w/2)
     {
         ball.x = c.width/2
         ball.y = c.height/2
+        player[1].score += 1
     }
+    if(ball.x > c.width - ball.w/2)
+    {
+        ball.x = c.width/2
+        ball.y = c.height/2
+        player[0].score += 1
+    }
+
+    console.log(player[0].score, `|`, player[1].score)
     /*if(ball.x > c.width)
     {
         ball.x = c.width
@@ -136,6 +145,7 @@ function main()
         ball.x = pad[1].x - pad[1].w/2 - ball.w/2
         ball.vx = -ball.vx;
     }
+    
 
     //draw the objects
     pad[0].draw()
