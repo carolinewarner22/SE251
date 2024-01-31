@@ -1,8 +1,3 @@
-/*--------
-    Make the Options Button 
-    . on click
-    . show or hide the `.sides` div
----------*/
 document.addEventListener('DOMContentLoaded', function() {
     var optionsHead = document.querySelector('#options h2');
 
@@ -11,20 +6,9 @@ document.addEventListener('DOMContentLoaded', function() {
         sidesDiv.classList.toggle('hidden');
     });
 });
-
-/*---------
-    Program the two fill inputs to do the following:
-    . Display the correct colors on the inputs and outputs and paddles    
-    . using an `input` event
-        . Change the player's fill property to the value of the input
-        . Change the pad's fill property  to the player's fill property
-        . Show the fill's hex code in the output div 
-
------------*/
 //FILL COLOR
 var fill = document.querySelectorAll('.fill')
 
-//PLAYER
 for(let i=0; i <player.length; i++){
     fill[i].addEventListener('input', fillChoose)
     function fillChoose(e) {
@@ -33,18 +17,27 @@ for(let i=0; i <player.length; i++){
     }
 }
 
-//BALL
-for(let i=0; i < o.length; i++){
+
+/*for(let i=0; i <o.length; i++){
     fill[i].addEventListener('input', fillChoose)
     function fillChoose(e) {
         o[i].fill = e.target.value
+    }
+}*/
+
+var range = document.querySelectorAll('.slider')
+for(let i=0; i < o.length; i++) {
+    range[i].addEventListener('input', pickSize)
+    function pickSize(e) {
+        o[2].w = parseInt(e.target.value)
+        o[2].h = parseInt(e.target.value)
+        
     }
 }
 
 //STROKE COLOR
 var stroke = document.querySelectorAll('.stroke')
 
-//PLAYER
 for(let i=0; i <player.length; i++){
     stroke[i].addEventListener('input', strokeChoose)
     function strokeChoose(e) {
@@ -53,14 +46,6 @@ for(let i=0; i <player.length; i++){
     }
 }
 
-/*---------
-    Program the six key inputs to do the following:
-    . Display the correct key names for each player   
-    . using a `keydown` event
-        .Display the correct key name in the input
-        .Change the player's key to the value of the input
-        .Show the player's key in the output div 
------------*/
 for(let i=0; i<player.length; i++)
 {
     //UP
@@ -84,7 +69,6 @@ for(let i=0; i<player.length; i++)
     var keyStraight = document.querySelectorAll('.s')
     keyStraight[i].addEventListener('input', Straight)
 }
-//PAUSE GAME TO EDIT OPTIONS
 for(let i=0; i<player.length; i++) {
     keyUp[i].addEventListener('focus',e=>currentState='pause')
     keyDown[i].addEventListener('focus',e=>currentState='pause')
