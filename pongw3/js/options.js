@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 //FILL COLOR
 var fill = document.querySelectorAll('.fill')
 
+//PLAYER
 for(let i=0; i <player.length; i++){
     fill[i].addEventListener('input', fillChoose)
     function fillChoose(e) {
@@ -32,9 +33,18 @@ for(let i=0; i <player.length; i++){
     }
 }
 
+//BALL
+for(let i=0; i < o.length; i++){
+    fill[i].addEventListener('input', fillChoose)
+    function fillChoose(e) {
+        o[i].fill = e.target.value
+    }
+}
+
 //STROKE COLOR
 var stroke = document.querySelectorAll('.stroke')
 
+//PLAYER
 for(let i=0; i <player.length; i++){
     stroke[i].addEventListener('input', strokeChoose)
     function strokeChoose(e) {
@@ -74,6 +84,7 @@ for(let i=0; i<player.length; i++)
     var keyStraight = document.querySelectorAll('.s')
     keyStraight[i].addEventListener('input', Straight)
 }
+//PAUSE GAME TO EDIT OPTIONS
 for(let i=0; i<player.length; i++) {
     keyUp[i].addEventListener('focus',e=>currentState='pause')
     keyDown[i].addEventListener('focus',e=>currentState='pause')
