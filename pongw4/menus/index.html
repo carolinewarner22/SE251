@@ -54,7 +54,7 @@
         const newGame = document.createElement(`button`);
         newGame.appendChild(document.createTextNode(`New Game`));
         menuTwo.appendChild(newGame);
-        newGame.setAttribute(`data-load`, `false`);
+        newGame.setAttribute(`data-load`, `true`);
 
         //resume button
         const resume = document.createElement(`button`);
@@ -66,9 +66,11 @@
         const highScore = document.createElement(`button`);
         highScore.appendChild(document.createTextNode(`High Scores`));
         menuTwo.appendChild(highScore);
+        highScore.setAttribute(`data-load`, `true`);
 
         const highScores = document.createElement(`div`);
         highScores.setAttribute(`id`, `high-scores`);
+
 
         var timer = setTimeout(loadStartMenu, 1000);
         function loadStartMenu(){
@@ -91,10 +93,18 @@
             });
         })
 
-        newGame.addEventListener(`click`, (e)=>{
+        /*newGame.addEventListener(`click`, (e)=>{
             $(`#start-options`).animate({opacity: 0}, 1000, function()
             {
                 menus.removeChild(menuTwo)
+                window.location = `lobby.html?load=${e.target.dataset.load}`
+            });
+        })*/
+
+        newGame.addEventListener(`click`, (e)=>{
+            $(`#start-options`).animate({opacity: 0}, 1000, function()
+            { 
+                menus.removeChild(menuTwo) 
                 window.location = `lobby.html?load=${e.target.dataset.load}`
             });
         })
@@ -111,7 +121,7 @@
             $(`#start-options`).animate({opacity: 0}, 1000, function()
             { 
                 menus.removeChild(menuTwo)
-                window.location = `hs.html?${e.target.dataset.load}`
+                window.location = `hs.html?load=${e.target.dataset.load}`
             });
         })
 

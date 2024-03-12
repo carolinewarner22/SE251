@@ -24,6 +24,10 @@
     </main>
     <script>
 
+        let params = (new URL(document.location)).searchParams;
+        let name = params.get("load");
+        alert(name); 
+        
         var message = ""
 
         var highScoreList = [
